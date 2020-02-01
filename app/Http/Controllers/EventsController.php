@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Event;
 
 class EventsController extends Controller
 {
@@ -13,7 +14,8 @@ class EventsController extends Controller
      */
     public function index()
     {
-        return 'events';
+        $posts = Blog::orderBy('created_at', 'desc')->paginate(10);
+        return view('event.posts')->with('posts', $posts);
     }
 
     /**
@@ -23,7 +25,7 @@ class EventsController extends Controller
      */
     public function create()
     {
-        //
+        return view('event.create');
     }
 
     /**
@@ -35,6 +37,17 @@ class EventsController extends Controller
     public function store(Request $request)
     {
         //
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required'
+          ]);
+          // create post
+          $post = new Event;
+          $post->title = $request->input('title');
+          $post->body = $request->input('body');
+          $post->save();
+  
+          return redirect('event');//->with('success', 'Post created');
     }
 
     /**
@@ -46,6 +59,8 @@ class EventsController extends Controller
     public function show($id)
     {
         //
+        $post = Blog::find($id);
+        return view('event.show')->with('post', $post);
     }
 
     /**
@@ -57,6 +72,8 @@ class EventsController extends Controller
     public function edit($id)
     {
         //
+        $post = Blog::find($id);
+        return view('event.edit')->with('post', $post);
     }
 
     /**
@@ -69,6 +86,17 @@ class EventsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $this->validate($request, [
+            'title' => 'required',
+            'body' => 'required'
+          ]);
+          // create post
+          $post = Event::find($id);
+          $post->title = $request->input('title');
+          $post->body = $request->input('body');
+          $post->save();
+      
+          return redirect('event')->with('success', 'Post Updated');
     }
 
     /**
@@ -80,5 +108,8 @@ class EventsController extends Controller
     public function destroy($id)
     {
         //
+        $post = Event::find($id);
+        $post->delete();
+        return redirect('event')->with('success', 'Post Remove');
     }
 }

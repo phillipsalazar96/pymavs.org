@@ -9,7 +9,7 @@ class ViewsController extends Controller
     public function index()
     {
         // Homepage
-        return view('home');
+        return view('welcome');
     }
 
     public function about()

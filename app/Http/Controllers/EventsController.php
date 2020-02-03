@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use App\Event;
 
 class EventsController extends Controller
@@ -25,7 +26,14 @@ class EventsController extends Controller
      */
     public function create()
     {
-        return view('events.create');
+        if (Auth::check())
+        {
+            return view('events.create');
+        }
+        else
+        {
+            return redirect('events');
+        }
     }
 
     /**
@@ -36,10 +44,12 @@ class EventsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (Auth::check())
+        {
         $this->validate($request, [
             'title' => 'required',
-            'content' => 'required'
+            'content' => 'required',
+            'event_date' => 'required'
           ]);
           // create post
           $post = new Event;
@@ -49,6 +59,11 @@ class EventsController extends Controller
           $post->save();
   
           return redirect('events');//->with('success', 'Post created');
+        }
+        else
+        {
+            return redirect('events');
+        }
     }
 
     /**
@@ -72,9 +87,15 @@ class EventsController extends Controller
      */
     public function edit($id)
     {
-        //
-        $post = Event::find($id);
-        return view('events.edit')->with('post', $post);
+        if (Auth::check())
+        {
+            $post = Event::find($id);
+            return view('events.edit')->with('post', $post);
+        }
+        else
+        {
+            return redirect('events');
+        }
     }
 
     /**
@@ -87,17 +108,27 @@ class EventsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        if (Auth::check())
+        {
         $this->validate($request, [
             'title' => 'required',
-            'body' => 'required'
+            'content' => 'required',
+            'event_date' => 'required'
+
           ]);
-          // create post
+          
           $post = Event::find($id);
           $post->title = $request->input('title');
-          $post->body = $request->input('body');
+          $post->content = $request->input('content');
+          $post->event_date = $request->input('event_date');
           $post->save();
       
-          return redirect('events')->with('success', 'Post Updated');
+          return redirect('events');//->with('success', 'Post Updated');
+        }
+        else
+        {
+            return redirect('events');
+        }
     }
 
     /**

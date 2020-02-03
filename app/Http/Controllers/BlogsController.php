@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Blog;
 
 class BlogsController extends Controller
 {
@@ -13,7 +15,8 @@ class BlogsController extends Controller
      */
     public function index()
     {
-        return 'blog section';
+        $posts = Blog::orderBy('created_at', 'desc')->paginate(10);
+        return view('blog.posts')->with('posts', $posts);
     }
 
     /**
@@ -23,7 +26,15 @@ class BlogsController extends Controller
      */
     public function create()
     {
-        //
+        if (Auth::check())
+        {
+            return view('blog.create');
+        }
+        else
+        {
+            return redirect('blog');
+        }
+
     }
 
     /**
@@ -34,7 +45,24 @@ class BlogsController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        if (Auth::check())
+        {
+            $this->validate($request, [
+                'title' => 'required',
+                'content' => 'required'
+            ]);
+            // create post
+            $post = new Blog;
+            $post->title = $request->input('title');
+            $post->content = $request->input('content');
+            $post->save();
+    
+            return redirect('blog')->with('success', 'Post created');
+        }
+        else
+        {
+            return redirect('blog');
+        }
     }
 
     /**
@@ -46,6 +74,8 @@ class BlogsController extends Controller
     public function show($id)
     {
         //
+        $post = Blog::find($id);
+        return view('blog.show')->with('post', $post);
     }
 
     /**
@@ -56,7 +86,15 @@ class BlogsController extends Controller
      */
     public function edit($id)
     {
-        //
+        if (Auth::check())
+        {
+            $post = Blog::find($id);
+            return view('blog.edit')->with('post', $post);
+        }
+        else
+        {
+            return redirect('blog');
+        }
     }
 
     /**
@@ -68,7 +106,25 @@ class BlogsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        if (Auth::check())
+        {
+            $this->validate($request, [
+                'title' => 'required',
+                'content' => 'required',
+
+            ]);
+            
+            $post = Blog::find($id);
+            $post->title = $request->input('title');
+            $post->content = $request->input('content');
+            $post->save();
+        
+            return redirect('blog')->with('success', 'Post Updated');
+        }
+        else
+        {
+            return redirect('blog');
+        }
     }
 
     /**
@@ -79,6 +135,15 @@ class BlogsController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (Auth::check())
+        {
+            $post = Event::find($id);
+            $post->delete();
+            return redirect('blog')->with('success', 'Post Remove');
+        }
+        else
+        {
+            return redirect('blog');
+        }
     }
 }

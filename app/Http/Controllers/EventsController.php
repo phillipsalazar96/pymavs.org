@@ -14,8 +14,8 @@ class EventsController extends Controller
      */
     public function index()
     {
-        $posts = Blog::orderBy('created_at', 'desc')->paginate(10);
-        return view('event.posts')->with('posts', $posts);
+        $posts = Event::orderBy('created_at', 'desc')->paginate(10);
+        return view('events.posts')->with('posts', $posts);
     }
 
     /**
@@ -25,7 +25,7 @@ class EventsController extends Controller
      */
     public function create()
     {
-        return view('event.create');
+        return view('events.create');
     }
 
     /**
@@ -39,15 +39,16 @@ class EventsController extends Controller
         //
         $this->validate($request, [
             'title' => 'required',
-            'body' => 'required'
+            'content' => 'required'
           ]);
           // create post
           $post = new Event;
           $post->title = $request->input('title');
-          $post->body = $request->input('body');
+          $post->content = $request->input('content');
+          $post->event_date = $request->input('event_date');
           $post->save();
   
-          return redirect('event');//->with('success', 'Post created');
+          return redirect('events');//->with('success', 'Post created');
     }
 
     /**
@@ -59,8 +60,8 @@ class EventsController extends Controller
     public function show($id)
     {
         //
-        $post = Blog::find($id);
-        return view('event.show')->with('post', $post);
+        $post = Event::find($id);
+        return view('events.show')->with('post', $post);
     }
 
     /**
@@ -72,8 +73,8 @@ class EventsController extends Controller
     public function edit($id)
     {
         //
-        $post = Blog::find($id);
-        return view('event.edit')->with('post', $post);
+        $post = Event::find($id);
+        return view('events.edit')->with('post', $post);
     }
 
     /**
@@ -96,7 +97,7 @@ class EventsController extends Controller
           $post->body = $request->input('body');
           $post->save();
       
-          return redirect('event')->with('success', 'Post Updated');
+          return redirect('events')->with('success', 'Post Updated');
     }
 
     /**
@@ -110,6 +111,6 @@ class EventsController extends Controller
         //
         $post = Event::find($id);
         $post->delete();
-        return redirect('event')->with('success', 'Post Remove');
+        return redirect('events')->with('success', 'Post Remove');
     }
 }

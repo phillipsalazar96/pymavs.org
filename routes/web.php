@@ -20,7 +20,7 @@ Route::get('/about', 'ViewsController@about');
 Route::resource('/blog', 'BlogsController');
 Route::resource('/events', 'EventsController') ;
 
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 

@@ -1,5 +1,8 @@
 @include('layouts.app')
 
-<a href="/events/create">Create Event</a>
+<div class="dashboard-box">
+<h2><a href="/events/create">Create Event</a></h2>
 <br>
-<a href="/blog/create">Create Post</a>
+<br>
+<h2><a href="/blog/create">Create Post</a></h2>
+<div>

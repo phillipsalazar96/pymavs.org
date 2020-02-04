@@ -4,20 +4,25 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>Laravel</title>
-
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
-
+  
         <!-- Styles -->
         <style>
             html, body {
-                background-color: #fff;
-                color: #636b6f;
+                background-image: url('/images/uta_building.png'); 
+                background-attachment:fixed;
+                background-size: 100%;
+                /* Center and scale the image nicely */
+                background-position: center;
+                background-repeat: no-repeat;
+
+                background-size: cover;
+                background-color: black;
+                
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
-                height: 100vh;
-                margin: 0;
+               
+                margin: 0px;
+                padding: 0px;
             }
 
             .full-height {
@@ -61,37 +66,32 @@
             .m-b-md {
                 margin-bottom: 30px;
             }
+
+            .moto {
+                width: 500px;
+                margin-top: -35%;
+            }
+            .moto h2 {
+                color: white;
+            }
         </style>
     </head>
     <body>
+        @include('layouts.app')
         <div class="flex-center position-ref full-height">
             @if (Route::has('login'))
                 <div class="top-right links">
                     @auth
                         <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
+                   
+                       
                     @endauth
                 </div>
             @endif
 
             <div class="content">
-                <div class="title m-b-md">
-                    Laravel
-                </div>
-
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+                <div class="moto">
+                <h2>Empowering Python programmers at the University of Texas at Arlington to innovate, network, and teach.</h2>
                 </div>
             </div>
         </div>

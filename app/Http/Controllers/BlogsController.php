@@ -55,6 +55,10 @@ class BlogsController extends Controller
             $post = new Blog;
             $post->title = $request->input('title');
             $post->content = $request->input('content');
+            $post->slug = "";
+            $post->categoy = "";
+            $post->metatags = "";
+
             $post->save();
     
             return redirect('blog')->with('success', 'Post created');
@@ -117,6 +121,9 @@ class BlogsController extends Controller
             $post = Blog::find($id);
             $post->title = $request->input('title');
             $post->content = $request->input('content');
+            $post->slug = "";
+            $post->categoy = "";
+            $post->metatags = "";
             $post->save();
         
             return redirect('blog')->with('success', 'Post Updated');
@@ -137,7 +144,7 @@ class BlogsController extends Controller
     {
         if (Auth::check())
         {
-            $post = Event::find($id);
+            $post = Blog::find($id);
             $post->delete();
             return redirect('blog')->with('success', 'Post Remove');
         }

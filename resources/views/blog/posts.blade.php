@@ -7,7 +7,7 @@
       @foreach($posts as $post)
 
         <div class="well posts-box">
-          <h3><a href="/blog/{{$post->id}}" >{{$post->title}}</a></h3>
+          <h3><a href="/blog/{{$post->slug}}" >{{$post->title}}</a></h3>
           <p>{{$post->created_at}}<p>
 
         </div>

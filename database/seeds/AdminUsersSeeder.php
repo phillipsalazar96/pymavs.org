@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class UserTableSeeder extends Seeder
+class AdminUsersSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,11 +11,11 @@ class UserTableSeeder extends Seeder
      */
     public function run()
     {
-        
         DB::table('users')->insert([
             'name' => 'Diego Gonzalez',
             'email' => 'juan.gonzalezgerman@mavs.uta.edu',
             'password' => Hash::make('pymavsPres12!@'),
+            'admin' => TRUE
 
  
         ]);
@@ -24,6 +24,7 @@ class UserTableSeeder extends Seeder
             'name' => 'Kyra Stolarski',
             'email' => 'kyra.stolarski@mavs.uta.edu',
             'password' => Hash::make('pymavsSec12!@'),
+            'admin' => TRUE
  
         ]);
 
@@ -31,8 +32,8 @@ class UserTableSeeder extends Seeder
             'name' => 'Phillip Salazar',
             'email' => 'phillip.salazar@mavs.uta.edu',
             'password' => Hash::make('pymavsMark12!@'),
+            'admin' => TRUE
  
         ]);
-        
     }
 }

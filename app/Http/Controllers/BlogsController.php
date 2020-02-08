@@ -15,8 +15,15 @@ class BlogsController extends Controller
      */
     public function index()
     {
+   
         $posts = Blog::orderBy('created_at', 'desc')->paginate(10);
         return view('blog.posts')->with('posts', $posts);
+    }
+
+    public function blog($category)
+    {
+        $posts = Blog::orderBy('created_at', 'desc')->paginate(10);
+        return view('blog.posts')->with('posts', $posts); 
     }
 
     /**
@@ -26,13 +33,21 @@ class BlogsController extends Controller
      */
     public function create()
     {
-        if (Auth::check())
+        if ( Auth::check())
         {
-            return view('blog.create');
+        
+            if ( Auth::user()->admin )
+            {
+                return view('blog.create');
+            }
+            else
+            {
+                return redirect('blog');
+            }
         }
-        else
+        else 
         {
-            return redirect('blog');
+            return redirect('/');
         }
 
     }
@@ -45,7 +60,7 @@ class BlogsController extends Controller
      */
     public function store(Request $request)
     {
-        if (Auth::check())
+        if (Auth::user()->admin ) 
         {
             $this->validate($request, [
                 'title' => 'required',
@@ -55,9 +70,9 @@ class BlogsController extends Controller
             $post = new Blog;
             $post->title = $request->input('title');
             $post->content = $request->input('content');
-            $post->slug = "";
-            $post->categoy = "";
-            $post->metatags = "";
+            $post->slug = $request->input('title');
+            $post->category = $request->input('category');
+            $post->metatags = $request->input('metatags');
 
             $post->save();
     
@@ -75,11 +90,19 @@ class BlogsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($slug)
     {
-        //
-        $post = Blog::find($id);
-        return view('blog.show')->with('post', $post);
+        $post = Blog::where('slug', '=', $slug)->first();
+        
+        if (!is_NULL($post))
+        {
+            return view('blog.show')->with('post', $post);
+        }
+        else
+        {
+            return redirect('blog');
+        }
+
     }
 
     /**
@@ -90,14 +113,21 @@ class BlogsController extends Controller
      */
     public function edit($id)
     {
-        if (Auth::check())
+        if( Auth::check() )
         {
-            $post = Blog::find($id);
-            return view('blog.edit')->with('post', $post);
+            if (Auth::user()->admin )
+            {
+                $post = Blog::find($id);
+                return view('blog.edit')->with('post', $post);
+            }
+            else
+            {
+                return redirect('blog');
+            }
         }
         else
         {
-            return redirect('blog');
+            return redirect('/');
         }
     }
 
@@ -110,7 +140,7 @@ class BlogsController extends Controller
      */
     public function update(Request $request, $id)
     {
-        if (Auth::check())
+        if (Auth::user()->admin )
         {
             $this->validate($request, [
                 'title' => 'required',
@@ -121,9 +151,9 @@ class BlogsController extends Controller
             $post = Blog::find($id);
             $post->title = $request->input('title');
             $post->content = $request->input('content');
-            $post->slug = "";
-            $post->categoy = "";
-            $post->metatags = "";
+            $post->slug = $request->input('title');
+            $post->category = $request->input('category');
+            $post->metatags = $request->input('metatags');
             $post->save();
         
             return redirect('blog')->with('success', 'Post Updated');
@@ -142,7 +172,7 @@ class BlogsController extends Controller
      */
     public function destroy($id)
     {
-        if (Auth::check())
+        if (Auth::user()->admin )
         {
             $post = Blog::find($id);
             $post->delete();
@@ -152,5 +182,11 @@ class BlogsController extends Controller
         {
             return redirect('blog');
         }
+    }
+
+    // Custom functions
+    private function makeSlug($data)
+    {
+
     }
 }

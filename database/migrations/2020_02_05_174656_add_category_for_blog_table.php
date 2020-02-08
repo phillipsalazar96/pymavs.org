@@ -15,7 +15,7 @@ class AddCategoryForBlogTable extends Migration
     {
         Schema::table('blogs', function (Blueprint $table) {
             $table->string('slug');
-            $table->string('categoy');
+            $table->string('category');
             $table->string('metatags');
         });
     }

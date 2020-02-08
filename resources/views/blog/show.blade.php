@@ -8,10 +8,10 @@
   <p>{{$post->content}}</p>
 </div>
   <hr/>
-  @if (!Auth::guest())
+  @if (Auth::user()->admin )
       
 <div class="button-box">
-  <span><a href="/blog/{{$post->id}}/edit" class="btn btn-primary">Edit</a></span>
+<span><a href="/blog/{{$post->id}}/edit" class="btn btn-primary">Edit</a></span>
   <br>
   <br>
   {{ Form::open(['action' => ['BlogsController@destroy', $post->id], 'method' => 'POST', 'class' => 'pullright']) }}

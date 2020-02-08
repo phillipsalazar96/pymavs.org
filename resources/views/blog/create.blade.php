@@ -9,6 +9,13 @@
    
     {{ Form::text('title', '', ['class' => 'from-control', 'placeholder' => 'Title']) }}
   </div>
+  <div class="form-group">
+    {{ Form::text('metatags', '', ['class' => 'from-control', 'placeholder' => 'Meta Tags']) }}
+  </div>
+
+  <div class="form-group">
+    {{ Form::select('category', ['blog' => 'Blog', 'events' => 'Events', 'tutorial' => 'Tutorial']) }}
+  </div>
 
   <div class="form-group">
     

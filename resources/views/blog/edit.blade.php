@@ -9,7 +9,13 @@
 
     {{ Form::text('title', $post->title, ['class' => 'from-control', 'placeholder' => 'Title']) }}
   </div>
+  <div class="form-group">
+    {{ Form::text('metatags', $post->metatags, ['class' => 'from-control', 'placeholder' => 'Meta Tags']) }}
+  </div>
 
+  <div class="form-group">
+    {{ Form::select('category', [$post->category => $post->category ,'blog' => 'Blog', 'events' => 'Events', 'tutorial' => 'Tutorial']) }}
+  </div>
   <div class="form-group">
 
     {{ Form::textarea('content', $post->content, ['class' => 'from-control', 'placeholder' => 'content...']) }}

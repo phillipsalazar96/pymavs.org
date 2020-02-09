@@ -21,7 +21,7 @@
     {{ Form::textarea('content', $post->content, ['id' => 'mytextarea', 'class' => 'from-control', 'placeholder' => 'content...']) }}
   </div>
   {{ Form::hidden('_method', 'PUT') }}
-  {{ Form::submit('submit', ['class' => 'btn-primary'])}}
+  {{ Form::submit('submit', ['class' => 'btn btn-primary'])}}
 
   {{ Form::close() }}
   <div class="forms-box">

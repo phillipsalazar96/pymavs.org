@@ -6,7 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 
-class DashboardConttroller extends Controller
+class DashboardController extends Controller
 {
     public function __construct()
     {
@@ -18,6 +18,18 @@ class DashboardConttroller extends Controller
         if (Auth::user()->admin)
         {
             return view('dashboard');
+        }
+        else 
+        {
+            return redirect('/');
+        }
+    }
+
+    public function manual()
+    {
+        if (Auth::user()->admin)
+        {
+            return view('admin.manual');
         }
         else 
         {

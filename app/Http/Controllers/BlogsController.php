@@ -151,7 +151,7 @@ class BlogsController extends Controller
             $post = Blog::find($id);
             $post->title = $request->input('title');
             $post->content = $request->input('content');
-            $post->slug = $request->input('title');
+            $post->slug = $this->makeSlug($request->input('title'));
             $post->category = $request->input('category');
             $post->metatags = $request->input('metatags');
             $post->save();
@@ -184,9 +184,10 @@ class BlogsController extends Controller
         }
     }
 
-    // Custom functions
+    // Custom functions that makes a slug
     private function makeSlug($data)
     {
-
+        $slug = str_replace(" ","-",$data);
+        return $slug;
     }
 }

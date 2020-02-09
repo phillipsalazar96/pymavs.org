@@ -20,9 +20,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/admin', 'DashboardConttroller@index');
+Route::get('/admin', 'DashboardController@index');
 
-Route::get('/about', 'HomeController@about');
-
-
+Route::get('/manual', 'DashboardController@manual');
 // resources at the bottom

@@ -22,7 +22,7 @@
   {{ Form::textarea('content', '', ['id' => 'mytextarea', 'class' => 'from-control', 'placeholder' => 'content...']) }}
 
   </div>
-  {{ Form::submit('submit', ['class' => 'btn-primary'])}}
+  {{ Form::submit('submit', ['class' => 'btn btn-primary'])}}
 
   {{ Form::close() }}
 

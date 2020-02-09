@@ -7,43 +7,13 @@
 // Bootstrap
 @import '~bootstrap/scss/bootstrap';
 
-.bg-white {
-    background-color: black !important;
-}
+@import 'welcome.scss';
 
-.navbar {
-    height: 75%;
-    position: relative;
-}
+@import 'layout.scss';
 
-.navbarz a img {
-    width: 350px;
-}
+@import 'show.scss';
 
-.navbar-nav li
-{
-    margin-left: 15%;   
-    font-size: 24px;
-}
-
-.navbar-nav li a 
-{
-    color: white;
-}
-
-.nav-item {
-    margin-top: -25%;
-}
-/* Post of blog and events */
-.posts-box 
-{
-    margin-left: 25%;
-}
-.title-of-posts
-{
-    margin-left: 20%;;
-}
-
+@import 'about.scss';
 /*  Dashboard */
 .dashboard-box
 {

@@ -11356,6 +11356,87 @@ a.text-dark:focus {
   }
 }
 
+.body-welcome {
+  background-image: url("/images/uta_building.png");
+  background-attachment: fixed;
+  background-size: 100%;
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: black;
+  font-family: "Nunito", sans-serif;
+  font-weight: 200;
+  margin: 0px;
+  padding: 0px;
+}
+
+.full-height {
+  height: 100vh;
+}
+
+.flex-center {
+  -webkit-box-align: center;
+          align-items: center;
+  display: -webkit-box;
+  display: flex;
+  -webkit-box-pack: center;
+          justify-content: center;
+}
+
+.position-ref {
+  position: relative;
+}
+
+.top-right {
+  position: absolute;
+  right: 10px;
+  top: 18px;
+}
+
+.content {
+  text-align: center;
+}
+
+.title {
+  font-size: 84px;
+}
+
+.links > a {
+  color: #636b6f;
+  padding: 0 25px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+
+.m-b-md {
+  margin-bottom: 30px;
+}
+
+.moto {
+  width: 500px;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.moto h2 {
+  color: white;
+}
+
+@media only screen and (max-width: 600px) {
+  .moto {
+    width: 240px;
+  }
+}
+
+.navbar-nav li a {
+  font-size: 24px;
+}
+
 .bg-white {
   background-color: black !important;
 }
@@ -11371,7 +11452,8 @@ a.text-dark:focus {
 
 .navbar-nav li {
   margin-left: 15%;
-  font-size: 24px;
+  font-size: 20px;
+  width: 150px;
 }
 
 .navbar-nav li a {
@@ -11386,10 +11468,34 @@ a.text-dark:focus {
 
 .posts-box {
   margin-left: 25%;
+  width: 750px;
 }
 
 .title-of-posts {
   margin-left: 20%;
+}
+
+code {
+  padding: 5px 5px 5px 5px;
+  border-radius: 5px;
+}
+
+@media only screen and (max-width: 600px) {
+  .posts-box {
+    width: auto;
+    margin-left: 5%;
+    margin-right: 5%;
+  }
+}
+
+.about-box h1 {
+  text-align: center;
+}
+
+.about-box p {
+  text-align: center;
+  padding-left: 50px;
+  padding-right: 50px;
 }
 
 /*  Dashboard */

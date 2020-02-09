@@ -18,7 +18,7 @@
   </div>
   <div class="form-group">
 
-    {{ Form::textarea('content', $post->content, ['class' => 'from-control', 'placeholder' => 'content...']) }}
+    {{ Form::textarea('content', $post->content, ['id' => 'mytextarea', 'class' => 'from-control', 'placeholder' => 'content...']) }}
   </div>
   {{ Form::hidden('_method', 'PUT') }}
   {{ Form::submit('submit', ['class' => 'btn-primary'])}}

@@ -49526,6 +49526,18 @@ Vue.component('example-component', __webpack_require__(/*! ./components/ExampleC
 var app = new Vue({
   el: '#app'
 });
+tinymce.init({
+  selector: '#mytextarea',
+  plugins: 'a11ychecker advcode casechange formatpainter linkchecker lists checklist media mediaembed pageembed' + 'permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
+  toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+  toolbar_drawer: 'floating',
+  tinycomments_mode: 'embedded',
+  tinycomments_author: 'Phillip',
+  height: 500,
+  width: 800
+}); // for highlight js to init it.
+
+hljs.initHighlightingOnLoad();
 
 /***/ }),
 

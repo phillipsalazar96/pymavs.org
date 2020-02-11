@@ -187,7 +187,7 @@ class BlogsController extends Controller
     // Custom functions that makes a slug
     private function makeSlug($data)
     {
-        $slug = str_replace(" ","-",$data);
+        $slug = str_replace("/","-",$data);
         return $slug;
     }
 }

@@ -17,5 +17,10 @@ class ViewsController extends Controller
         return view('about');
     }
 
+    public function console()
+    {
+        return view('console');
+    }
+
     
 }

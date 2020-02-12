@@ -14,7 +14,10 @@ Route::get('/', 'ViewsController@index' );
 
 Route::get('/about', 'ViewsController@about');
 
+Route::get('/console', 'ViewsController@console');
+
 Route::resource('/blog' ,'BlogsController' );
+
 
 Auth::routes();
 

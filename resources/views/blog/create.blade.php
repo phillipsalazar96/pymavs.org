@@ -18,8 +18,13 @@
   </div>
 
   <div class="form-group">
+    {{ Form::label('publish', 'Do you want to publish') }}
+    {{ Form::checkbox('publish', 'value') }}
+  </div>
+
+  <div class="form-group">
     
-  {{ Form::textarea('content', '', ['id' => 'mytextarea', 'class' => 'from-control', 'placeholder' => 'content...']) }}
+  {{ Form::textarea('content', '', ['id' => 'custom-toolbar-button', 'class' => ['from-control'], 'placeholder' => 'content...']) }}
 
   </div>
   {{ Form::submit('submit', ['class' => 'btn btn-primary'])}}

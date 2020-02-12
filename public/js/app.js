@@ -49527,15 +49527,65 @@ var app = new Vue({
   el: '#app'
 });
 tinymce.init({
-  selector: '#mytextarea',
+  selector: 'textarea',
   plugins: 'a11ychecker advcode casechange formatpainter linkchecker lists checklist media mediaembed pageembed' + 'permanentpen powerpaste table advtable tinycomments tinymcespellchecker',
-  toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table',
+  toolbar: 'a11ycheck addcomment showcomments casechange checklist code formatpainter pageembed permanentpen table customInsertButton',
   toolbar_drawer: 'floating',
   tinycomments_mode: 'embedded',
   tinycomments_author: 'Phillip',
   height: 500,
-  width: 800
-}); // for highlight js to init it.
+  width: 800,
+  setup: function setup(editor) {
+    editor.ui.registry.addButton('customInsertButton', {
+      text: 'Code Block',
+      onAction: function onAction(_) {
+        editor.insertContent('&nbsp;<pre><code class="language-python">### <br/>Add code here <br/>###</code></pre>&nbsp;');
+      }
+    });
+  } //EOO
+
+});
+/*
+tinymce.init({
+  selector: '#custom-toolbar-button',
+  toolbar: 'customInsertButton customDateButton',
+  toolbar_drawer: 'floating',
+  setup: function (editor) {
+
+    editor.ui.registry.addButton('customInsertButton', {
+      text: 'My Button',
+      onAction: function (_) {
+        editor.insertContent('&nbsp;<strong>It\'s my button!</strong>&nbsp;');
+      }
+    });
+
+    var toTimeHtml = function (date) {
+      return '<time datetime="' + date.toString() + '">' + date.toDateString() + '</time>';
+    };
+
+    editor.ui.registry.addButton('customDateButton', {
+      icon: 'insert-time',
+      tooltip: 'Insert Current Date',
+      disabled: true,
+      onAction: function (_) {
+        editor.insertContent(toTimeHtml(new Date()));
+      },
+      onSetup: function (buttonApi) {
+        var editorEventCallback = function (eventApi) {
+          buttonApi.setDisabled(eventApi.element.nodeName.toLowerCase() === 'time');
+        };
+        editor.on('NodeChange', editorEventCallback);
+
+      
+        return function (buttonApi) {
+          editor.off('NodeChange', editorEventCallback);
+        };
+      }
+    });
+  }
+});
+*/
+// for highlight js to init it.
 
 hljs.initHighlightingOnLoad();
 
@@ -49673,8 +49723,8 @@ __webpack_require__.r(__webpack_exports__);
 /*! no static exports found */
 /***/ (function(module, exports, __webpack_require__) {
 
-__webpack_require__(/*! /var/www/html/laravel_projects/pymavs.org/resources/js/app.js */"./resources/js/app.js");
-module.exports = __webpack_require__(/*! /var/www/html/laravel_projects/pymavs.org/resources/sass/app.scss */"./resources/sass/app.scss");
+__webpack_require__(/*! /var/www/html/laravel_projects/pymavs/resources/js/app.js */"./resources/js/app.js");
+module.exports = __webpack_require__(/*! /var/www/html/laravel_projects/pymavs/resources/sass/app.scss */"./resources/sass/app.scss");
 
 
 /***/ })

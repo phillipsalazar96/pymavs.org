@@ -64,8 +64,11 @@ class BlogsController extends Controller
         {
             $this->validate($request, [
                 'title' => 'required',
-                'content' => 'required'
+                'content' => 'required',
+                'publish' => 'required'
             ]);
+            $publish = ($request->input('publish') == 'publish' ? true : false);
+
             // create post
             $post = new Blog;
             $post->title = $request->input('title');
@@ -73,14 +76,14 @@ class BlogsController extends Controller
             $post->slug = $request->input('title');
             $post->category = $request->input('category');
             $post->metatags = $request->input('metatags');
-
+            $post->publish = $publish;    
             $post->save();
     
-            return redirect('blog')->with('success', 'Post created');
+            return redirect('/admin/blog')->with('success', 'Post created');
         }
         else
         {
-            return redirect('blog');
+            return redirect('/blog');
         }
     }
 
@@ -122,7 +125,7 @@ class BlogsController extends Controller
             }
             else
             {
-                return redirect('blog');
+                return redirect('/');
             }
         }
         else
@@ -145,18 +148,21 @@ class BlogsController extends Controller
             $this->validate($request, [
                 'title' => 'required',
                 'content' => 'required',
+                'publish' => 'required'
 
             ]);
-            
+            $publish = ($request->input('publish') == 'publish' ? true : false);
+
             $post = Blog::find($id);
             $post->title = $request->input('title');
             $post->content = $request->input('content');
             $post->slug = $this->makeSlug($request->input('title'));
             $post->category = $request->input('category');
             $post->metatags = $request->input('metatags');
+            $post->publish = $publish; 
             $post->save();
         
-            return redirect('blog')->with('success', 'Post Updated');
+            return redirect('/admin/blog')->with('success', 'Post Updated');
         }
         else
         {

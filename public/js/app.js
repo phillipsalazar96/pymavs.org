@@ -37059,17 +37059,6 @@ module.exports = function(module) {
  */
 __webpack_require__(/*! ./bootstrap */ "./resources/js/bootstrap.js");
 
-function fullconsole() {
-  var screenHeight = window.innerHeight;
-  var urlarr = window.location.href.split('/');
-  console.log(urlarr);
-
-  if (urlarr[3] == 'console') {
-    document.body.innerHTML = ' <iframe id="pyconsole" src="https://trinket.io/embed/python3/eba82e49c7" width="100%" height="' + screenHeight + '" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>';
-  }
-}
-
-fullconsole();
 tinymce.init({
   selector: 'textarea',
   plugins: 'a11ychecker advcode casechange formatpainter linkchecker lists checklist media mediaembed pageembed' + 'permanentpen powerpaste table advtable tinycomments tinymcespellchecker',

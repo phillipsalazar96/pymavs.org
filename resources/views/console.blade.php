@@ -1,7 +1,7 @@
 <html>
 <head>
 <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/pythonconsole.js') }}" defer></script>
     <style>
         html,body {
             padding: 0px;

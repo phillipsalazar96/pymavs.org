@@ -19,7 +19,7 @@
 
   <div class="form-group">
     {{ Form::label('publish', 'Do you want to publish') }}
-    {{ Form::checkbox('publish', 'value') }}
+    {{ Form::select('publish', ['notpublish' => 'Not Publish', 'publish' => 'Publish']) }}
   </div>
 
   <div class="form-group">

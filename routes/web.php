@@ -24,6 +24,7 @@ Auth::routes();
 Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('/admin', 'DashboardController@index');
+Route::get('/admin/blog', 'DashboardController@showAllPosts');
 
 Route::get('/manual', 'DashboardController@manual');
 // resources at the bottom

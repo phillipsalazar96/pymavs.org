@@ -16,7 +16,7 @@
         &lt;pre&gt;&lt;code class="language-python"&gt;...&lt;/code&gt;&lt;/pre&gt;
     </p> 
 
-    
+    <p>oh yeah if there any bugs please let me know on discord</p>    
 
 </div>
 @endsection

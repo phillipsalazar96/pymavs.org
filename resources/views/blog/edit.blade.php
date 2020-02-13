@@ -17,6 +17,10 @@
     {{ Form::select('category', [$post->category => $post->category ,'blog' => 'Blog', 'events' => 'Events', 'tutorial' => 'Tutorial']) }}
   </div>
   <div class="form-group">
+    {{ Form::label('publish', 'Do you want to publish') }}
+    {{ Form::select('publish', ['notpublish' => 'Not Publish', 'publish' => 'Publish']) }}
+  </div>
+  <div class="form-group">
 
     {{ Form::textarea('content', $post->content, ['id' => 'mytextarea', 'class' => 'from-control', 'placeholder' => 'content...']) }}
   </div>

@@ -1,6 +1,17 @@
-@extends('layouts.app')
-@section('content')
+<html>
+<head>
+<!-- Scripts -->
+    <script src="{{ asset('js/app.js') }}" defer></script>
+    <style>
+        html,body {
+            padding: 0px;
+            margin: 0px;
+        }
+    </style>
+</head>
 
-<iframe src="https://trinket.io/embed/python3/055c60f8a0" width="100%" height="756" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>
+<body>
 
-@endsection
+   
+</body>
+</html>

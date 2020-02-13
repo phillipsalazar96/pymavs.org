@@ -6,30 +6,22 @@
 
 require('./bootstrap');
 
-window.Vue = require('vue');
+function fullconsole()
+{
 
-/**
- * The following block of code may be used to automatically register your
- * Vue components. It will recursively scan this directory for the Vue
- * components and automatically register them with their "basename".
- *
- * Eg. ./components/ExampleComponent.vue -> <example-component></example-component>
- */
+  var screenHeight = window.innerHeight;
 
-// const files = require.context('./', true, /\.vue$/i);
-// files.keys().map(key => Vue.component(key.split('/').pop().split('.')[0], files(key).default));
+  var urlarr = window.location.href.split('/');
+  console.log(urlarr);
+  if (urlarr[3] == 'console')
+  {
+    document.body.innerHTML = ' <iframe id="pyconsole" src="https://trinket.io/embed/python3/eba82e49c7" width="100%" height="' + screenHeight + '" frameborder="0" marginwidth="0" marginheight="0" allowfullscreen></iframe>';
+  }
+}
 
-Vue.component('example-component', require('./components/ExampleComponent.vue').default);
+fullconsole();
 
-/**
- * Next, we will create a fresh Vue application instance and attach it to
- * the page. Then, you may begin adding components to this application
- * or customize the JavaScript scaffolding to fit your unique needs.
- */
 
-const app = new Vue({
-    el: '#app',
-});
 
 tinymce.init({
     selector: 'textarea',
@@ -57,45 +49,7 @@ tinymce.init({
 
     });
 
-/*
-tinymce.init({
-  selector: '#custom-toolbar-button',
-  toolbar: 'customInsertButton customDateButton',
-  toolbar_drawer: 'floating',
-  setup: function (editor) {
 
-    editor.ui.registry.addButton('customInsertButton', {
-      text: 'My Button',
-      onAction: function (_) {
-        editor.insertContent('&nbsp;<strong>It\'s my button!</strong>&nbsp;');
-      }
-    });
 
-    var toTimeHtml = function (date) {
-      return '<time datetime="' + date.toString() + '">' + date.toDateString() + '</time>';
-    };
-
-    editor.ui.registry.addButton('customDateButton', {
-      icon: 'insert-time',
-      tooltip: 'Insert Current Date',
-      disabled: true,
-      onAction: function (_) {
-        editor.insertContent(toTimeHtml(new Date()));
-      },
-      onSetup: function (buttonApi) {
-        var editorEventCallback = function (eventApi) {
-          buttonApi.setDisabled(eventApi.element.nodeName.toLowerCase() === 'time');
-        };
-        editor.on('NodeChange', editorEventCallback);
-
-      
-        return function (buttonApi) {
-          editor.off('NodeChange', editorEventCallback);
-        };
-      }
-    });
-  }
-});
-*/
     // for highlight js to init it.
     hljs.initHighlightingOnLoad();

@@ -2,6 +2,15 @@
 @extends('layouts.app')
 
 @section('content')
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <div class="forms-box">
   <h1>Edit post</h1>
   {{ Form::open(['action' => ['BlogsController@update', $post->id], 'method' => 'POST']) }}
@@ -25,7 +34,7 @@
     {{ Form::textarea('content', $post->content, ['id' => 'mytextarea', 'class' => 'from-control', 'placeholder' => 'content...']) }}
   </div>
   {{ Form::hidden('_method', 'PUT') }}
-  {{ Form::submit('submit', ['class' => 'btn btn-primary'])}}
+  {{ Form::submit('Save', ['class' => 'btn btn-primary'])}}
 
   {{ Form::close() }}
   <div class="forms-box">

@@ -18,8 +18,7 @@ Route::get('/console', 'ViewsController@console');
 
 Route::resource('/blog' ,'BlogsController' );
 
-
-Auth::routes();
+Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');
 
@@ -28,3 +27,7 @@ Route::get('/admin/blog', 'DashboardController@showAllPosts');
 
 Route::get('/manual', 'DashboardController@manual');
 // resources at the bottom
+
+// Emails
+Route::resource('/email', 'EmailController');
+Route::get('/signup', 'EmailController@signup');

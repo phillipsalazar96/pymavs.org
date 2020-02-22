@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Email;
 
 class EmailController extends Controller
 {
@@ -38,7 +39,18 @@ class EmailController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        // store emails
+        $this->validate($request, [
+            'email' => 'required',
+
+        ]);
+
+        // create email
+        $email = new Email;
+        $email->email = $request->input('email');
+        $email->save();
+
+        return redirect('/signup')->with('success', 'Post created');
     }
 
     /**

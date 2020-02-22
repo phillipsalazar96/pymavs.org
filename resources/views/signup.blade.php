@@ -3,10 +3,10 @@
 <div class="posts-box about-box">
 <h1>About</h1>
 <hr/>
-<p>
-    We are a python programming club at The University of Texas at Arlington. This organization is run by students from different 
-    backgrounds and majors. We are passionate python programmers that is always excited to share and teach other students about
-    python programming.
-</p>
+<form method="post" action="{{ action('EmailController@store') }}" accept-charset="UTF-8">
+    <input type="email" name="email" placeholder="Email...">
+    <input name="_token" type="hidden" value="{{ csrf_token() }}"/>
+    <input type="submit" value="Sign up!">
+</form>
 </div>
 

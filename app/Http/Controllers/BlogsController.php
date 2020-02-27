@@ -190,6 +190,33 @@ class BlogsController extends Controller
         }
     }
 
+    // custom functions 
+    public function getSlugToRoute($slug)
+    {
+        
+        if ($slug == "blogs")
+        {
+            $posts = Blog::orderBy('created_at', 'desc')->where('category', '=', 'blog')->paginate(10);
+            return view('blog.posts')->with('posts', $posts);
+        }
+        else if ($slug == 'events')
+        {
+            $posts = Blog::orderBy('created_at', 'desc')->where('category', '=', 'events')->paginate(10);
+            return view('blog.posts')->with('posts', $posts);
+        }
+        else if ($slug == 'tutorials')
+        {
+            $posts = Blog::orderBy('created_at', 'desc')->where('category', '=', 'tutorial')->paginate(10);
+            return view('blog.posts')->with('posts', $posts);
+        }
+        else 
+        {
+            return abort(404);
+        }
+        
+        
+    }
+
     // Custom functions that makes a slug
     private function makeSlug($data)
     {

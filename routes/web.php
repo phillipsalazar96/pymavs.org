@@ -18,6 +18,8 @@ Route::get('/console', 'ViewsController@console');
 
 Route::resource('/blog' ,'BlogsController' );
 
+Route::get('/blog/category/{slug}' ,'BlogsController@getSlugToRoute');
+
 Auth::routes(['register' => false]);
 
 Route::get('/home', 'HomeController@index')->name('home');

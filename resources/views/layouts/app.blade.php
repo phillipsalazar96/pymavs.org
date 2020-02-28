@@ -46,10 +46,11 @@
                 <div >
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav">
+                        
                         <li><a href="/blog">Blog</a></li>
                         <li><a href="/console">Console</a></li>
                         <li><a href="/about">About Us</a></li>
-                    
+                        
 
                     <!-- Right Side Of Navbar -->
                  <!--   <ul class="navbar-nav">

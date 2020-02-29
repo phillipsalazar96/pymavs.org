@@ -11434,7 +11434,7 @@ a.text-dark:focus {
 }
 
 .navbar-nav li a {
-  font-size: 24px;
+  font-size: 15px;
 }
 
 .bg-white {
@@ -11452,12 +11452,17 @@ a.text-dark:focus {
 
 .navbar-nav li {
   margin-left: 15%;
-  font-size: 20px;
+  font-size: 15px;
   width: 150px;
 }
 
 .navbar-nav li a {
   color: white;
+}
+
+.nav-link {
+  color: white !important;
+  margin-top: 50%;
 }
 
 .nav-item {

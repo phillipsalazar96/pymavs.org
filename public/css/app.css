@@ -11498,6 +11498,12 @@ code {
   padding-right: 50px;
 }
 
+.center-box {
+  display: block;
+  margin: auto;
+  width: 400px;
+}
+
 /*  Dashboard */
 
 .dashboard-box {

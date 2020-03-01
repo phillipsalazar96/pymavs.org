@@ -30,4 +30,10 @@ Route::get('/manual', 'DashboardController@manual');
 
 // Emails
 Route::resource('/email', 'EmailController');
-Route::get('/signup', 'EmailController@signup');
+Route::get('/signup/{done}', 'EmailController@signup')->name('signup');
+
+//download link
+
+// Regression test routes
+Route::get('/admin/stats', 'EmailController@emailStats');
+Route::get('/csv', 'EmailController@exportCSV');

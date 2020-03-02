@@ -1,0 +1,25 @@
+.navbar-nav li a {
+  font-size: 15px;
+}
+.bg-white {
+  background-color: black !important;
+}
+.navbar {
+  height: 75%;
+  position: relative;
+}
+.navbarz a img {
+  width: 350px;
+}
+.navbar-nav li {
+  margin-left: 15%;
+  font-size: 15px;
+  width: 150px;
+}
+.navbar-nav li a {
+  color: white;
+}
+.nav-link {
+  color: white !important;
+  margin-top: 50%;
+}

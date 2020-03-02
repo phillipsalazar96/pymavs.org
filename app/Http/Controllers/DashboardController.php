@@ -17,7 +17,7 @@ class DashboardController extends Controller
     {
         if (Auth::user()->admin)
         {
-            return view('dashboard');
+            return view('admin.dashboard');
         }
         else 
         {

@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html class="" lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
@@ -7,11 +9,10 @@
   
         <!-- Styles -->
         <style>
-
         </style>
     </head>
     <body class="body-welcome">
-        @include('layouts.app')
+        @include('layouts.navbar')
         <div class="container-fluid">
             <div class="col-md">
 

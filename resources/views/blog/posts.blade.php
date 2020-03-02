@@ -7,7 +7,7 @@
       
   
 
-    @if(count($posts) > 0 ) )
+    @if(count($posts) > 0 )
       @foreach($posts as $post)
         
         @if($post->publish == 1)

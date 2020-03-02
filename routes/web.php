@@ -32,4 +32,4 @@ Route::get('/manual', 'DashboardController@manual');
 
 // Emails
 Route::resource('/email', 'EmailController');
-Route::get('/signup', 'EmailController@signup');
+

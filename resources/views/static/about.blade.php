@@ -1,5 +1,5 @@
-@include('layouts.app')
-
+@extends('layouts.app')
+@section('content')
 <div class="posts-box about-box">
 <h1>About</h1>
 <hr/>
@@ -9,4 +9,4 @@
     python programming.
 </p>
 </div>
-
+@endsection

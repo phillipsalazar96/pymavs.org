@@ -64,7 +64,6 @@ class BlogsController extends Controller
         {
             $this->validate($request, [
                 'title' => 'required',
-                'metatags'=> 'required',
                 'content' => 'required',
                 'publish' => 'required'
             ]);
@@ -148,7 +147,7 @@ class BlogsController extends Controller
         {
             $this->validate($request, [
                 'title' => 'required',
-                'metatags' => 'required',
+                
                 'content' => 'required',
                 'publish' => 'required'
 

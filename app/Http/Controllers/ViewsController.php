@@ -9,17 +9,17 @@ class ViewsController extends Controller
     public function index()
     {
         // Homepage
-        return view('welcome');
+        return view('static.welcome');
     }
 
     public function about()
     {
-        return view('about');
+        return view('static.about');
     }
 
     public function console()
     {
-        return view('console');
+        return view('static.console');
     }
 
     

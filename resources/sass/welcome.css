@@ -1,0 +1,61 @@
+.welcome-background {
+  background-image: url("/images/uta_building.png");
+  background-attachment: fixed;
+  background-size: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: black;
+  font-family: "Nunito", sans-serif;
+  font-weight: 200;
+  margin: 0px;
+  padding: 0px;
+}
+.full-height {
+  height: 100vh;
+}
+.flex-center {
+  align-items: center;
+  display: flex;
+  justify-content: center;
+}
+.position-ref {
+  position: relative;
+}
+.top-right {
+  position: absolute;
+  right: 10px;
+  top: 18px;
+}
+.content {
+  text-align: center;
+}
+.title {
+  font-size: 84px;
+}
+.links > a {
+  color: #636b6f;
+  padding: 0 25px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.1rem;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.m-b-md {
+  margin-bottom: 30px;
+}
+.moto {
+  width: 500px;
+  margin-top: 10%;
+  margin-left: auto;
+  margin-right: auto;
+}
+.moto h2 {
+  color: white;
+}
+@media only screen and (max-width: 600px) {
+  .moto {
+    width: 240px;
+  }
+}

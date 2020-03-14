@@ -1,7 +1,7 @@
-@include('layouts.app')
-
-<div class="posts-box about-box">
-<h1>About</h1>
+@extends('layouts.app')
+@section('content')
+<div class="box posts-box about-box margin-from-top">
+<h1 class="title-of-posts">About</h1>
 <hr/>
 <p>
     We are a python programming club at The University of Texas at Arlington. This organization is run by students from different 
@@ -9,4 +9,4 @@
     python programming.
 </p>
 </div>
-
+@endsection

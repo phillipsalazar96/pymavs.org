@@ -17,7 +17,7 @@ class DashboardController extends Controller
     {
         if (Auth::user()->admin)
         {
-            return view('dashboard');
+            return view('admin.dashboard');
         }
         else 
         {
@@ -41,7 +41,7 @@ class DashboardController extends Controller
     {
         if (Auth::check() && Auth::user()->admin)
         {
-        $posts = Blog::orderBy('created_at', 'desc')->paginate(10);
+        $posts = Blog::orderBy('created_at', 'desc')->paginate(50);
         return view('admin.posts')->with('posts', $posts);
         }
         else 

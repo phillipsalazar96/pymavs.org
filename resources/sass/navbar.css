@@ -1,0 +1,74 @@
+.navbar-box {
+  float: left;
+  margin-left: 5%;
+}
+.navbar {
+  margin: 0px;
+  width: 100%;
+  padding: 0px;
+  background-color: black;
+  height: 150px;
+}
+.navbar-item {
+  height: 50px;
+  margin-top: 10%;
+}
+.navbar-item-url {
+  color: white !important;
+}
+.navbar-item-url:hover {
+  color: #ffd43b !important;
+}
+.navbar-box-bg:hover {
+  background-color: #306998 !important;
+  color: #ffd43b !important;
+}
+.navbar-dropdown-bg {
+  background-color: #306998 !important;
+}
+.navbar-dropdown-bg a:hover {
+  color: #306998 !important;
+  background-color: #ffd43b !important;
+}
+.navbar-item img {
+  display: block !important;
+  width: 400px;
+  max-height: 500px !important;
+}
+.navbar-nav {
+  margin-top: 10%;
+  width: 500px;
+  margin-left: 90%;
+}
+.navbar-nav li {
+  display: inline;
+}
+.is-active {
+  background-color: black;
+}
+.navbar-button-box {
+  margin-top: 8%;
+  margin-left: 10%;
+}
+@media only screen and (max-width: 600px) {
+  .navbar-item img {
+    display: block !important;
+    width: 200px;
+    max-height: 500px !important;
+  }
+  .navbar {
+    height: 100px;
+  }
+  .navbar-item {
+    height: 50px;
+    margin-top: 0%;
+    padding-top: 10px;
+  }
+  .navbar-brand {
+    margin-top: 10%;
+  }
+  .navbar-button-box {
+    margin-top: 0%;
+    margin-left: 0%;
+  }
+}

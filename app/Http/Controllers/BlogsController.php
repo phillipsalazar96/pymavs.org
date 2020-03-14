@@ -75,7 +75,7 @@ class BlogsController extends Controller
             $post->content = $request->input('content');
             $post->slug = $request->input('title');
             $post->category = $request->input('category');
-            $post->metatags = $request->input('metatags');
+            $post->metatags = $request->input('title');
             $post->publish = $publish;    
             $post->save();
     
@@ -158,7 +158,7 @@ class BlogsController extends Controller
             $post->content = $request->input('content');
             $post->slug = $this->makeSlug($request->input('title'));
             $post->category = $request->input('category');
-            $post->metatags = $request->input('metatags');
+            $post->metatags = $request->input('title');
             $post->publish = $publish; 
             $post->save();
         
@@ -166,7 +166,7 @@ class BlogsController extends Controller
         }
         else
         {
-            return redirect('blog');
+            return redirect('/');
         }
     }
 
@@ -178,36 +178,36 @@ class BlogsController extends Controller
      */
     public function destroy($id)
     {
-        if (Auth::user()->admin )
+        if ( Auth::user()->admin )
         {
             $post = Blog::find($id);
             $post->delete();
-            return redirect('blog')->with('success', 'Post Remove');
+            return redirect('admin/blog')->with('success', 'Post Remove');
         }
         else
         {
-            return redirect('blog');
+            return redirect('admin/blog');
         }
     }
 
     // custom functions 
     public function getSlugToRoute($slug)
     {
-        
+        $post;   
         if ($slug == "blogs")
         {
             $posts = Blog::orderBy('created_at', 'desc')->where('category', '=', 'blog')->paginate(10);
-            return view('blog.posts')->with('posts', $posts);
+            return view('blog.posts')->with('posts', $posts)->with('slug', $slug);
         }
         else if ($slug == 'events')
         {
             $posts = Blog::orderBy('created_at', 'desc')->where('category', '=', 'events')->paginate(10);
-            return view('blog.posts')->with('posts', $posts);
+            return view('blog.posts')->with('posts', $posts)->with('slug', $slug);
         }
         else if ($slug == 'tutorials')
         {
             $posts = Blog::orderBy('created_at', 'desc')->where('category', '=', 'tutorial')->paginate(10);
-            return view('blog.posts')->with('posts', $posts);
+            return view('blog.posts')->with('posts', $posts)->with('slug', $slug);
         }
         else 
         {

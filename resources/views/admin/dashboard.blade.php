@@ -1,12 +1,12 @@
 @extends('layouts.app')
 @section('content')
-<div class="dashboard-box">
+<div class="posts-box margin-from-top">
 
-<h2><a href="/blog/create">Create Post</a></h2>
+<h2><a href="/blog/create"><button class="button is-large is-fullwidth">Create Post</button></a></h2>
+
 <br/>
-<h2><a href="/admin/blog">All posts</a></h2>
+<h2><a href="/admin/blog"><button class="button is-large is-fullwidth">All Posts</button></</a></h2>
 <br/>
-<h2><a href="/manual">Manual</a></h2>
 
 <div>
 @endsection
